@@ -1,0 +1,17 @@
+{
+  "ERP_Integration_Target": "SAP_S4HANA_OData",
+  "API_Endpoints": {
+    "Batch_Inventory_Post": "https://liquor-corp.com",
+    "Quality_Control_Release": "https://liquor-corp.com"
+  },
+  "Data_Payload_Mapping": {
+    "Material_SKU": "SKU-WHI-AGED-12Y",
+    "Plant_Location": "FACTORY_VN_03",
+    "Storage_Location_Bin": "SLOC-WHSE-A",
+    "Data_Fields": {
+      "Yield_Volume_Liters": "Total_Yield_Liters",
+      "Alcohol_By_Volume": "nong_do_con_ABV",
+      "SHA256_Compliance_Seal": "SHA256_Seal"
+    }
+  }
+}

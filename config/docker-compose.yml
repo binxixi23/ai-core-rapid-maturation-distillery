@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  plsr_model_blue:
+    image: local_registry/plsr_model:v2.0.0
+    container_name: plsr_model_blue
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - EDGE_SERVER_PORT=44818
+      - ENCRYPTED_MODEL_KEY_PATH=/etc/tpm/model_key.bin
+    volumes:
+      - /etc/tpm:/etc/tpm:ro
+      - /var/log/ai_core:/var/log/ai_core
+    networks:
+      - ot_conduit_net
+
+  plsr_model_green:
+    image: local_registry/plsr_model:v2.1.0
+    container_name: plsr_model_green
+    profiles:
+      - staging
+    environment:
+      - NODE_ENV=staging
+    volumes:
+      - /etc/tpm:/etc/tpm:ro
+    networks:
+      - ot_conduit_net
+
+networks:
+  ot_conduit_net:
+    driver: bridge

@@ -1,0 +1,72 @@
+===================================================================================================
+SCREEN 1: PROCESS FLOW DIAGRAM & HYDRAULIC CONDUIT MATRIX (LEFT MONITOR)
+===================================================================================================
+[SYSTEM STATUS: RUNNING]               [HMI LAYOUT: PROCESS FLOW]          [USER: LEVEL 2 DISTILLER]
+
+       ┌──────────────────────────────────────────────────────────┐
+       │                 MAIN AGING VAT (10,000L)                 │
+       │  Volume: 9,842L          Temp: 24.2°C         pH: 4.15   │
+       └────────────────────────────┬─────────────────────────────┘
+                                    │ [V-DRAIN-01: OPEN] (Gray-Scale)
+                                    ▼
+                          [LOW-SHEAR PUMP: ACTIVE]
+                          Speed: 1,150 RPM   |   Flow: 83.33 L/min
+                                    │
+                                    ▼
+                        [INLET SENSORS: NOMINAL]
+                        NIR Temp: 24.2°C     |   Inlet Press: 2.1 Bar
+                                    │
+                                    ▼
+       ┌────────────────────────────┴─────────────────────────────┐
+       │               HIGH-ENERGY ACTIVATION BAY                 │
+       │  • E-Beam Grid Contactors:   [CONNECTED]   Power: 35.5 kW│
+       │  • High-Voltage AC Field:    [ON]          Field: 400V/cm│
+       │  • Ultrasound Transducers:   [ON]          Freq:  24.5kHz│
+       │  • N2 Enclosure Purge:       [SAFE]        Press: 18.2 PSI│
+       └────────────────────────────┬─────────────────────────────┘
+                                    │
+                                    ▼
+                        [OUTLET SENSORS: NOMINAL]
+                        Outlet Press: 1.8 Bar|   Line LEL: 0.00%
+                                    │
+                                    ▼
+       ┌────────────────────────────┴─────────────────────────────┐
+       │                  [V-RET-01: OPEN] (Cyan)                 │
+       │             Whiskey returning to top of tank             │
+       └──────────────────────────────────────────────────────────┘
+
+===================================================================================================
+SCREEN 2: AI ANALYTICAL & FLAVOR FORENSICS (CENTER MONITOR)
+===================================================================================================
+[TARGET SPECIFICATION PROFILE: CHIVAS_12_CLONE_V4]                       [ANALYTICAL ENGINE: ONLINE]
+
+[BATCH QUALITY MATCH TRACKING]
+  Target Similarity Index: 95.00%
+  Current Batch Match Level:     ======================================> [94.62%] (Tracking Nominal)
+
+[MOLECULAR RATIO ANALYSIS]
+  Metric                 | Current Level | Target Baseline | Deviation | Status
+  -----------------------+---------------+-----------------+-----------+---------------------------
+  Aldehydes (Gat Con)    | 0.014%        | 0.012%          | +0.002%   | NOMINAL (Gray)
+  Volatile Esters        | 2.81 PPM      | 2.85 PPM        | -0.040    | NOMINAL (Gray)
+  Wood Tannins           | 1.42          | 1.45            | -0.030    | NOMINAL (Gray)
+  Cluster Index          | 91.20%        | 92.00%          | -0.800%   | NOMINAL (Gray)
+
+===================================================================================================
+SCREEN 3: SAFETY INTEGRITY & HARDWARE ALARM MATRIX (RIGHT MONITOR)
+===================================================================================================
+[SAFETY REGISTER LAYER: SIL-3 REDUNDANT]                            [GUARDLOGIX SAFETY BUS: NOMINAL]
+
+[ENVIRONMENTAL SAFETY MATRIX]
+  Detector Node          | Location            | Live Reading  | Operational Status
+  -----------------------+---------------------+---------------+-----------------------------------
+  EX-SNIFFER-01          | Main Loop Enclosure | 0.00% LEL     | SAFE (Green Check)
+  EX-SNIFFER-02          | E-Beam Window Room  | 0.00% LEL     | SAFE (Green Check)
+  PRESS-TRANS-01         | Pump Output Line    | 2.10 Bar      | SAFE (Green Check)
+  N2-PURGE-01            | Switchgear Cabinet  | 18.20 PSI     | SAFE (Green Check)
+
+[ALARM LOG BANNER - HIGHEST ACTIVE ALERT]
+  ----------------─────────────────────────────────────────────────────────────────────────────────
+  PRIORITY STATUS | CODE   | DESCRIPTION                            | TIMESTAMP  | OWNER ACTION
+  ----------------+--------+----------------────────────────────────+------------+─────────────────
+  PR-3 INFORMATIONAL| SYS-04 | NIR Optical Probe CIP Flush Overdue  | 12:14:02   | Sched Post-Batch

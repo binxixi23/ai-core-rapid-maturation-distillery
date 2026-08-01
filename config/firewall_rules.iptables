@@ -1,0 +1,19 @@
+# NGUYÊN TẮC BẢO MẬT MẠNG PURDUE MODEL LEVEL 2/3
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+
+# 1. Cho phép luồng Heartbeat nội bộ của máy chủ AI Loopback
+-A INPUT -i lo -j ACCEPT
+-A OUTPUT -o lo -j ACCEPT
+
+# 2. CHỈ cho phép cổng CIP (Ethernet/IP) truyền dữ liệu đến PLC GuardLogix (192.168.1.50)
+-A OUTPUT -p tcp -d 192.168.1.50 --dport 44818 -m state --state NEW,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -s 192.168.1.50 --sport 44818 -m state --state ESTABLISHED -j ACCEPT
+
+# 3. CHỈ chặn toàn bộ mọi kết nối Internet bên ngoài ra vào mạng bồn chưng cất
+-A INPUT -p tcp --dport 80 -j DROP
+-A INPUT -p tcp --dport 443 -j DROP
+
+COMMIT
