@@ -1,7 +1,7 @@
 # 🥃 AI-CORE RAPID MATURATION & LIQUOR BLENDING DISTILLERY SYSTEM
 > **Welcome to the Future of Distilling!** Breaking the 10-year barrel barrier and redefining the liquor industry through Quantum Particle Physics, Industrial AI, and SIL-3 Automated Hardening.
 
-![AI Distillery Architecture](./pictures/image_5e3da1d1.png)
+![ai_distillery_architecture](./pictures/image_5e3da1d1.png)
 
 ---
 
